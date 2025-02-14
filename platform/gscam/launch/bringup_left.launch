@@ -1,0 +1,57 @@
+<launch>
+  <arg name="bit_rate" default="8000000" />
+  <arg name="cam_name" default="camera_left" />
+  <arg name="camera_EV" default="7.7"/>
+  <arg name="camera_exposure_time_threshold_max" default="10"/>
+  <arg name="camera_exposure_time_threshold_min" default="0"/>
+  <arg name="camera_gain_max" default="256.0"/>
+  <arg name="camera_gain_min" default="1.0"/>
+  <arg name="camera_gain" default="1" />
+  <arg name="camera_zoom_max" default="10.0"/>
+  <arg name="camera_zoom_min" default="1.0"/>
+  <arg name="camera_zoom" default="1.0"/>
+  <arg name="fps" default="15" />
+  <arg name="frame_id" default="/$(arg cam_name)_link" />
+  <arg name="lens_f_number" default="2.5"/>
+  <arg name="publish_rate" default="1"/>
+  <arg name="resolution_type" default="0"/>
+  <arg name="sensor_id" default="1" />
+  <arg name="status_publish_rate" default="1.0" />
+  <arg name="streaming_bind_port" default="51311" />
+  <arg name="streaming_on" default="True" />
+  <arg name="sync_sink" default="true" />
+  <arg name="target_host_ip" default="localhost" />
+  <arg name="target_host_port" default="55511" />
+  <arg name="white_balance_mode" default="1" />
+
+  <node pkg="gscam" type="gscam" name="$(arg cam_name)" output="screen">
+    <rosparam command="load" file="$(find camera_and_microphone)/config/params.yml" subst_value="True" />
+
+    <param name="sensor_id" value="$(arg sensor_id)" />
+    <param name="bit_rate" value="$(arg bit_rate)" />
+    <param name="cam_name" value="$(arg cam_name)" />
+    <param name="camera_EV" value="$(arg camera_EV)" />
+    <param name="camera_exposure_time_threshold_max" value="$(arg camera_exposure_time_threshold_max)" />
+    <param name="camera_exposure_time_threshold_min" value="$(arg camera_exposure_time_threshold_min)" />
+    <param name="camera_gain_max" value="$(arg camera_gain_max)" />
+    <param name="camera_gain_min" value="$(arg camera_gain_min)" />
+    <param name="camera_gain" value="$(arg camera_gain)" />
+    <param name="camera_id" type="int" value="$(arg sensor_id)" />
+    <param name="camera_name" value="$(arg cam_name)" />
+    <param name="camera_zoom_max" value="$(arg camera_zoom_max)" />
+    <param name="camera_zoom_min" value="$(arg camera_zoom_min)" />
+    <param name="camera_zoom" value="$(arg camera_zoom)" />
+    <param name="fps" value="$(arg fps)" />
+    <param name="frame_id" value="$(arg frame_id)" />
+    <param name="lens_f_number" value="$(arg lens_f_number)" />
+    <param name="resolution_type" value="$(arg resolution_type)" />
+    <param name="status_publish_rate" value="$(arg status_publish_rate)" />
+    <param name="streaming_bind_port" value="$(arg streaming_bind_port)" />
+    <param name="streaming_on" value="$(arg streaming_on)" />
+    <param name="sync_sink" value="$(arg sync_sink)" />
+    <param name="target_host_ip" value="$(arg target_host_ip)" />
+    <param name="target_host_port" value="$(arg target_host_port)" />
+    <param name="white_balance_mode" value="$(arg white_balance_mode)" />
+  </node>
+
+</launch>

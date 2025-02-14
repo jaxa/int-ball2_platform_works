@@ -1,0 +1,16 @@
+[Unit]
+Description = Platform Flight Software
+
+[Service]
+ExecStartPre=/home/nvidia/IB2/others/management/split_logs.sh
+ExecStart=/home/nvidia/IB2/others/management/launch_platform_flight_software.sh
+ExecStop=/home/nvidia/IB2/others/management/stop_flight_software_service.sh
+ExecStopPost=/home/nvidia/IB2/others/management/split_logs.sh
+KillMode=control-group
+TimeoutStopSec=30
+Type=simple
+User=nvidia
+Group=nvidia
+
+[Install]
+WantedBy = multi-user.target

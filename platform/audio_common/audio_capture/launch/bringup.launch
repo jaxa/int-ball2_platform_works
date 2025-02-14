@@ -1,0 +1,29 @@
+<launch>
+  <!-- arecord -l will show available input devices, use the car number as
+      the first number and the subdevice number as the second in a string
+      like hw:1,0 -->
+  <arg name="bitrate" default="128"/>
+  <arg name="channels" default="1"/>
+  <arg name="device" default="alsa_input.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-mono"/>
+  <arg name="mp3_encode" default="true"/>
+  <arg name="sample_format" default="S16LE"/>
+  <arg name="sample_rate" default="44100"/>
+  <arg name="streaming_on" default="True" />
+  <arg name="streaming_bind_port" default="51320" />
+  <arg name="target_host_ip" default="localhost" />
+  <arg name="target_host_port" default="55520" />
+
+  <node name="microphone" pkg="audio_capture" type="audio_capture" output="screen">
+    <param name="bitrate" value="$(arg bitrate)"/>
+    <param name="channels" value="$(arg channels)"/>
+    <param name="device" value="$(arg device)"/>
+    <param name="mp3_encode" value="$(arg mp3_encode)"/>
+    <param name="sample_format" value="$(arg sample_format)"/>
+    <param name="sample_rate" value="$(arg sample_rate)"/>
+    <param name="streaming_on" value="$(arg streaming_on)" />
+    <param name="streaming_bind_port" value="$(arg streaming_bind_port)"/>
+    <param name="target_host_ip" value="$(arg target_host_ip)"/>
+    <param name="target_host_port" value="$(arg target_host_port)"/>
+  </node>
+
+</launch>

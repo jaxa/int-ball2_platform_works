@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find gscam)/launch/bringup_main.launch"/>
+    <include file="$(find gscam)/launch/bringup_left.launch"/>
+    <include file="$(find gscam)/launch/bringup_right.launch"/>
+</launch>
