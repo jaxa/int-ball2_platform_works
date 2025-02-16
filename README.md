@@ -3,7 +3,7 @@
 ## Overview
 Technology Demonstration Platform S/W for Int-ball2.
 
-See the int-ball2_simulator Repository.
+For details see the [Int-ball2_simulator](https://github.com/jaxa/int-ball2_simulator) Repository.
 
 
 ---
