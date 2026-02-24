@@ -1,0 +1,5 @@
+topics:
+-
+  topic: /pub_data 
+  type: std_msgs/msg/String
+  queue_size: 1 

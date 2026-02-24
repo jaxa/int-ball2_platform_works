@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="pub_topic" default="/pub_data" />
+
+  <node name="pub_sub_node" pkg="simple_talker_ros2" exec="pub_sub_node" output="screen" >
+    <param name="pub_topic" value="$(var pub_topic)" />
+  </node>
+
+  <!-- <node name="ros1_bridge_node" pkg="ros1_bridge" exec="dynamic_bridge" output="screen" /> -->
+
+</launch>
