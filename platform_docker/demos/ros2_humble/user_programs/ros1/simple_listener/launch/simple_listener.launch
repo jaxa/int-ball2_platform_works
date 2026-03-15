@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="sub_topic" default="/pub_data" />
+
+  <node pkg="simple_listener" type="simple_listener_node" name="simple_listener_node" output="screen" respawn="true" >
+    <param name="sub_topic" value="$(arg sub_topic)" />
+  </node>
+</launch>
