@@ -338,7 +338,11 @@ class PlatformManager(object):
             try:
                 # expected arguments = (package-name + relative-roslaunch-filename) = (user + launch)
                 roslaunch.rlutil.resolve_launch_arguments((request.user, request.launch))
-            except Exception:
+            except Exception as e:
+                rospy.logerr(
+                    'Launch file not found: package="{}", launch="{}", '
+                    'workspace="{}", error="{}"'.format(
+                        request.user, request.launch, self.__host_ib2_workspace, e))
                 return error_return(UserNodeCommandResponse.LAUNCH_NOT_FOUND)
 
             try:
